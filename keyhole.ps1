@@ -14,4 +14,4 @@ if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
     Start-Process -Verb runas -FilePath powershell.exe -ArgumentList “iwr -useb https://raw.githubusercontent.com/GFOXNEXON/keyhole/main/keyhole.ps1 | iex”
     break
 }
-Function Get-WinUtilCheckBoxes {
+Write-Host "Special Sauce"
