@@ -59,7 +59,50 @@ $button1.Location = New-Object System.Drawing.Point(10, 80)
 $button1.Size = New-Object System.Drawing.Size(100, 40)
 $button1.Text = "Connect and Update"
 $button1.Add_Click({
-    Start-Process powershell.exe -ArgumentList "-File $cachePath\enrol-kit.ps1"
+    
+Write-Host "Funny Farm modules"
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
+
+
+# Install the NuGet package provider if it is not already installed
+if (!(Get-PackageProvider -Name NuGet -ErrorAction SilentlyContinue)) {
+  Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Confirm:$false -Force:$true;
+}
+
+# Install the pswindowsupdate module if it is not already installed
+if (!(Get-Module -Name PswindowsUpdate -ErrorAction SilentlyContinue)) {
+  Install-Module -Name pswindowsupdate -force
+}
+
+
+Write-Host "Set Time Zone AUS Eastern Standard Time"
+
+Set-TimeZone -Id "AUS Eastern Standard Time"
+
+
+
+Write-Host "##############################################################" -ForegroundColor Yellow
+
+Write-Host "Automated Update of all Drivers, Firmware and Windows Updates." -ForegroundColor Green
+
+Write-Host "DEVICE WILL AUTO REBOOT" -ForegroundColor Green
+
+
+Write-Host "##############################################################" -ForegroundColor Yellow
+
+#GFOX V4.2
+
+Import-Module PswindowsUpdate
+Write-Host "Standby " -ForegroundColor Green
+#VET UPDATES Exclude Defender and Problem Updates the following are excluded
+#KB5007651   18MB Update for Windows Security platform antimalware platform - KB5007651 
+#KB890830    57MB Windows Malicious Software Removal Tool x64 - v5.116 (KB890830)
+#KB2267602  127MB Security Intelligence Update for Microsoft Defender Antivirus - KB2267602
+#KB4023057    3MB 2023-04 Update for Windows 11 Version 22H2 for x64-based Systems
+
+Install-WindowsUpdate -NotKBArticleID KB2267602, KB4023057, KB5007651, KB890830 -AcceptAll
+#-AcceptAll -AutoReboot
 })
 $form.Controls.Add($button1)
 
