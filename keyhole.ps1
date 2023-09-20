@@ -68,7 +68,7 @@ $button1 = New-Object System.Windows.Forms.Button
 $button1.Location = New-Object System.Drawing.Point(10, 80)
 $button1.Size = New-Object System.Drawing.Size(100, 40)
 $button1.Text = "Connect and Update"
-$button1.Image = [System.Drawing.Image]::FromStream((New-Object System.Net.WebClient).OpenRead("https://i.imgur.com/0w9xZ6F.png"))
+#$button1.Image = [System.Drawing.Image]::FromStream((New-Object System.Net.WebClient).OpenRead("https://i.imgur.com/0w9xZ6F.png"))
 $button1.ImageAlign = [System.Drawing.ContentAlignment]::MiddleCenter
 $tooltip.SetToolTip($button1, "This will connect the device to Intune and install all updates")
 $button1.Add_Click({
@@ -124,7 +124,7 @@ $button2 = New-Object System.Windows.Forms.Button
 $button2.Location = New-Object System.Drawing.Point(120, 80)
 $button2.Size = New-Object System.Drawing.Size(100, 40)
 $button2.Text = "UNCLUSTERFUCK DEVICE"
-$button2.Image = [System.Drawing.Image]::FromStream((New-Object System.Net.WebClient).OpenRead("https://i.imgur.com/0w9xZ6F.png"))
+#$button2.Image = [System.Drawing.Image]::FromStream((New-Object System.Net.WebClient).OpenRead("https://i.imgur.com/0w9xZ6F.png"))
 $button2.ImageAlign = [System.Drawing.ContentAlignment]::MiddleCenter
 $tooltip.SetToolTip($button2, "This will reset the device to factory settings and remove all data")
 $button2.Add_Click({
@@ -137,7 +137,7 @@ $button3 = New-Object System.Windows.Forms.Button
 $button3.Location = New-Object System.Drawing.Point(230, 80)
 $button3.Size = New-Object System.Drawing.Size(100, 40)
 $button3.Text = "Script 3"
-$button3.Image = [System.Drawing.Image]::FromStream((New-Object System.Net.WebClient).OpenRead("https://i.imgur.com/0w9xZ6F.png"))
+#$button3.Image = [System.Drawing.Image]::FromStream((New-Object System.Net.WebClient).OpenRead("https://i.imgur.com/0w9xZ6F.png"))
 $button3.ImageAlign = [System.Drawing.ContentAlignment]::MiddleCenter
 $tooltip.SetToolTip($button3, "This will run the third script")
 $button3.Add_Click({
