@@ -17,8 +17,6 @@ if (!(Test-Path $cachePath)) {
     New-Item -ItemType Directory -Path $cachePath | Out-Null
 }
 
-
-
 # Get the hostname and serial number
 $hostname = $env:COMPUTERNAME
 $serial = (Get-WmiObject -Class Win32_BIOS).SerialNumber
@@ -32,32 +30,47 @@ $form.Add_FormClosing({
     Remove-Item -Recurse -Force $cachePath -ErrorAction SilentlyContinue
 })
 
-#$form.BackgroundImage = $image
-#$form.BackgroundImageLayout = [System.Windows.Forms.ImageLayout]::Stretch  # Stretch the image to fill the form
+# Set a background image for the form from a URL and stretch it to fill the form
+$form.BackgroundImage = [System.Drawing.Image]::FromStream((New-Object System.Net.WebClient).OpenRead("https://i.imgur.com/5fLz3Qk.jpg"))
+$form.BackgroundImageLayout = [System.Windows.Forms.ImageLayout]::Stretch
 
 # Labels
 
-# Create the label for the hostname
+# Set a bold white font for the labels
+$labelFont = New-Object System.Drawing.Font("Arial", 12, [System.Drawing.FontStyle]::Bold)
+$labelColor = [System.Drawing.Color]::White
+
+# Create the label for the hostname and set its font and color
 $hostnameLabel = New-Object System.Windows.Forms.Label
 $hostnameLabel.Location = New-Object System.Drawing.Point(10, 10)
 $hostnameLabel.Size = New-Object System.Drawing.Size(380, 20)
 $hostnameLabel.Text = "Hostname: $hostname"
+$hostnameLabel.Font = $labelFont
+$hostnameLabel.ForeColor = $labelColor
 $form.Controls.Add($hostnameLabel)
 
-# Create the label for the serial number
+# Create the label for the serial number and set its font and color
 $serialLabel = New-Object System.Windows.Forms.Label
 $serialLabel.Location = New-Object System.Drawing.Point(10, 30)
 $serialLabel.Size = New-Object System.Drawing.Size(380, 20)
 $serialLabel.Text = "Serial number: $serial"
+$serialLabel.Font = $labelFont
+$serialLabel.ForeColor = $labelColor
 $form.Controls.Add($serialLabel)
 
 # Buttons
 
-# Create the button to launch the first script
+# Create a tooltip object for the buttons
+$tooltip = New-Object System.Windows.Forms.ToolTip
+
+# Create the button to launch the first script and set its image and tooltip
 $button1 = New-Object System.Windows.Forms.Button
 $button1.Location = New-Object System.Drawing.Point(10, 80)
 $button1.Size = New-Object System.Drawing.Size(100, 40)
 $button1.Text = "Connect and Update"
+$button1.Image = [System.Drawing.Image]::FromStream((New-Object System.Net.WebClient).OpenRead("https://i.imgur.com/0w9xZ6F.png"))
+$button1.ImageAlign = [System.Drawing.ContentAlignment]::MiddleCenter
+$tooltip.SetToolTip($button1, "This will connect the device to Intune and install all updates")
 $button1.Add_Click({
     
 Write-Host "Funny Farm modules"
@@ -106,25 +119,29 @@ Install-WindowsUpdate -NotKBArticleID KB2267602, KB4023057, KB5007651, KB890830 
 })
 $form.Controls.Add($button1)
 
-# Create the button to launch the second script
+# Create the button to launch the second script and set its image and tooltip
 $button2 = New-Object System.Windows.Forms.Button
 $button2.Location = New-Object System.Drawing.Point(120, 80)
 $button2.Size = New-Object System.Drawing.Size(100, 40)
-$button2.Text = "AutoPilotEnrol AzureAD"
+$button2.Text = "UNCLUSTERFUCK DEVICE"
+$button2.Image = [System.Drawing.Image]::FromStream((New-Object System.Net.WebClient).OpenRead("https://i.imgur.com/0w9xZ6F.png"))
+$button2.ImageAlign = [System.Drawing.ContentAlignment]::MiddleCenter
+$tooltip.SetToolTip($button2, "This will reset the device to factory settings and remove all data")
 $button2.Add_Click({
-    Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Confirm:$false -Force:$true;
-Install-Script get-windowsautopilotinfo -Confirm:$false -Force:$true ;
-get-windowsautopilotinfo -Online -GroupTag AzureAD
+    Start-Process powershell.exe -ArgumentList "-File D:\SpecialSauce\enrol-kitadvanced.ps1"
 })
 $form.Controls.Add($button2)
 
-# Create the button to launch the third script
+# Create the button to launch the third script and set its image and tooltip
 $button3 = New-Object System.Windows.Forms.Button
 $button3.Location = New-Object System.Drawing.Point(230, 80)
 $button3.Size = New-Object System.Drawing.Size(100, 40)
 $button3.Text = "Script 3"
+$button3.Image = [System.Drawing.Image]::FromStream((New-Object System.Net.WebClient).OpenRead("https://i.imgur.com/0w9xZ6F.png"))
+$button3.ImageAlign = [System.Drawing.ContentAlignment]::MiddleCenter
+$tooltip.SetToolTip($button3, "This will run the third script")
 $button3.Add_Click({
-    Start-Process powershell.exe -ArgumentList "-File $cachePath\Script3.ps1"
+    Start-Process powershell.exe -ArgumentList "-File D:\SpecialSauce\Script3.ps1"
 })
 $form.Controls.Add($button3)
 
