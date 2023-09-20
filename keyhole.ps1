@@ -123,7 +123,7 @@ $form.Controls.Add($button1)
 $button2 = New-Object System.Windows.Forms.Button
 $button2.Location = New-Object System.Drawing.Point(120, 80)
 $button2.Size = New-Object System.Drawing.Size(100, 40)
-$button2.Text = "UNCLUSTERFUCK DEVICE"
+$button2.Text = "AUTOPILOT ENROL DEVICE"
 #$button2.Image = [System.Drawing.Image]::FromStream((New-Object System.Net.WebClient).OpenRead("https://i.imgur.com/0w9xZ6F.png"))
 $button2.ImageAlign = [System.Drawing.ContentAlignment]::MiddleCenter
 $tooltip.SetToolTip($button2, "This will reset the device to factory settings and remove all data")
