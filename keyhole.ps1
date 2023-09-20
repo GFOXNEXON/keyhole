@@ -67,9 +67,11 @@ $form.Controls.Add($button1)
 $button2 = New-Object System.Windows.Forms.Button
 $button2.Location = New-Object System.Drawing.Point(120, 80)
 $button2.Size = New-Object System.Drawing.Size(100, 40)
-$button2.Text = "UNCLUSTERFUCK DEVICE"
+$button2.Text = "AutoPilotEnrol AzureAD"
 $button2.Add_Click({
-    Start-Process powershell.exe -ArgumentList "-File $cachePath\AutopilotNuke.ps1"
+    Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Confirm:$false -Force:$true;
+Install-Script get-windowsautopilotinfo -Confirm:$false -Force:$true ;
+get-windowsautopilotinfo -Online -GroupTag AzureAD
 })
 $form.Controls.Add($button2)
 
