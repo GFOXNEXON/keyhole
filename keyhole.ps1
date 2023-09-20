@@ -31,7 +31,7 @@ $form.Add_FormClosing({
 })
 
 # Set a background image for the form from a URL and stretch it to fill the form
-$form.BackgroundImage = [System.Drawing.Image]::FromStream((New-Object System.Net.WebClient).OpenRead("https://i.imgur.com/5fLz3Qk.jpg"))
+$form.BackgroundImage = [System.Drawing.Image]::FromStream((New-Object System.Net.WebClient).OpenRead("https://nexon.com.au/wp-content/assets/Nexon_Asia_Pacific__Connectivity_of_tomorrow__v1.jpg"))
 $form.BackgroundImageLayout = [System.Windows.Forms.ImageLayout]::Stretch
 
 # Labels
