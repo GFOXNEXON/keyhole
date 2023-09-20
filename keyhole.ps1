@@ -128,7 +128,9 @@ $button2.Text = "UNCLUSTERFUCK DEVICE"
 $button2.ImageAlign = [System.Drawing.ContentAlignment]::MiddleCenter
 $tooltip.SetToolTip($button2, "This will reset the device to factory settings and remove all data")
 $button2.Add_Click({
-    Start-Process powershell.exe -ArgumentList "-File D:\SpecialSauce\enrol-kitadvanced.ps1"
+    Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Confirm:$false -Force:$true;
+Install-Script get-windowsautopilotinfo -Confirm:$false -Force:$true ;
+get-windowsautopilotinfo -Online -GroupTag AzureAD
 })
 $form.Controls.Add($button2)
 
