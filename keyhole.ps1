@@ -57,7 +57,7 @@ $form.Controls.Add($hostnameLabel)
 $serialLabel = New-Object System.Windows.Forms.Label
 $serialLabel.Location = New-Object System.Drawing.Point(10, 30)
 $serialLabel.Size = New-Object System.Drawing.Size(380, 20)
-$serialLabel.Text = "Serial number: $serial"
+$serialLabel.Text = "$serial"
 $serialLabel.Font = $labelFont
 $serialLabel.ForeColor = $labelColor
 $serialLabel.BackColor = $labelBackColor
