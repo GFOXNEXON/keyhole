@@ -9,7 +9,7 @@ if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
 }
 Write-Host "Special Sauce - Engineers Toolkit"
 # Set the message to display
-$message = "Loading Special Sauce "
+$message = "Loading Special Sauce"
 
 # Loop through each character in the message
 for ($i = 0; $i -lt $message.Length; $i++) {
