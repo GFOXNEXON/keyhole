@@ -40,23 +40,29 @@ $form.BackgroundImageLayout = [System.Windows.Forms.ImageLayout]::Stretch
 $labelFont = New-Object System.Drawing.Font("Arial", 12, [System.Drawing.FontStyle]::Bold)
 $labelColor = [System.Drawing.Color]::White
 
-# Create the label for the hostname and set its font and color
+# Set a transparent background color for the labels
+$labelBackColor = [System.Drawing.Color]::FromName("Transparent")
+
+# Create the label for the hostname and set its font, color, and background
 $hostnameLabel = New-Object System.Windows.Forms.Label
 $hostnameLabel.Location = New-Object System.Drawing.Point(10, 10)
 $hostnameLabel.Size = New-Object System.Drawing.Size(380, 20)
 $hostnameLabel.Text = "Hostname: $hostname"
 $hostnameLabel.Font = $labelFont
 $hostnameLabel.ForeColor = $labelColor
+$hostnameLabel.BackColor = $labelBackColor
 $form.Controls.Add($hostnameLabel)
 
-# Create the label for the serial number and set its font and color
+# Create the label for the serial number and set its font, color, and background
 $serialLabel = New-Object System.Windows.Forms.Label
 $serialLabel.Location = New-Object System.Drawing.Point(10, 30)
 $serialLabel.Size = New-Object System.Drawing.Size(380, 20)
 $serialLabel.Text = "Serial number: $serial"
 $serialLabel.Font = $labelFont
 $serialLabel.ForeColor = $labelColor
+$serialLabel.BackColor = $labelBackColor
 $form.Controls.Add($serialLabel)
+
 
 # Buttons
 
