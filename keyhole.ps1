@@ -24,7 +24,7 @@ $serial = (Get-WmiObject -Class Win32_BIOS).SerialNumber
 # Create the form and set its properties
 $form = New-Object System.Windows.Forms.Form
 $form.Text = "Special Sauce"
-$form.Size = New-Object System.Drawing.Size(900, 5600)
+$form.Size = New-Object System.Drawing.Size(900, 600)
 # Event Handler to delete cache when form is closed
 $form.Add_FormClosing({
     Remove-Item -Recurse -Force $cachePath -ErrorAction SilentlyContinue
