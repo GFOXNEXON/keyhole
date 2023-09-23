@@ -8,14 +8,37 @@ if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
     break
 }
 Write-Host "Special Sauce - Engineers Toolkit"
+# Set the message to display
+$message = "Loading Special Sauce "
+
+# Loop through each character in the message
+for ($i = 0; $i -lt $message.Length; $i++) {
+
+    # Get the current character
+    $char = $message[$i]
+
+    # Append the character to the status
+    $status += $char
+
+    # Display the progress bar with the status
+    Write-Progress -Activity "Please wait" -Status $status -PercentComplete (($i + 1) / $message.Length * 100)
+
+    # Wait for 100 milliseconds
+    Start-Sleep -Milliseconds 100
+}
+
+# Clear the progress bar
+Write-Progress -Activity "Please wait" -Completed
+
+
 
 # Variables
-$cachePath = "C:\SpecialSauceCache"
+#$cachePath = "C:\SpecialSauceCache"
 
 # Create cache directory if it doesn't exist
-if (!(Test-Path $cachePath)) {
-    New-Item -ItemType Directory -Path $cachePath | Out-Null
-}
+#if (!(Test-Path $cachePath)) {
+#    New-Item -ItemType Directory -Path $cachePath | Out-Null
+#}
 
 # Get the hostname and serial number
 $hostname = $env:COMPUTERNAME
