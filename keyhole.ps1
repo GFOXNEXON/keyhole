@@ -1,4 +1,6 @@
 #Load DLLs
+#GFOX Special Sauce V4.1 
+
 Add-Type -AssemblyName System.Windows.Forms
 
 # Check if the script is running as Administrator and relaunch if not
