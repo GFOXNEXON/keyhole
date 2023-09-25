@@ -107,7 +107,7 @@ $button1.Size = New-Object System.Drawing.Size(100, 40)
 $button1.Text = "Connect and Update"
 #$button1.Image = [System.Drawing.Image]::FromStream((New-Object System.Net.WebClient).OpenRead("https://i.imgur.com/0w9xZ6F.png"))
 $button1.ImageAlign = [System.Drawing.ContentAlignment]::MiddleCenter
-$tooltip.SetToolTip($button1, "This will connect the device to Intune and install all updates")
+$tooltip.SetToolTip($button1, "This will install all updates, firmware and drivers across all hardware architectures.")
 $button1.Add_Click({
     
 Write-Host "Funny Farm modules"
