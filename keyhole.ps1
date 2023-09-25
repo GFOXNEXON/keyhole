@@ -1,3 +1,9 @@
+# Set the execution policy to RemoteSigned for the current process
+Set-ExecutionPolicy RemoteSigned -Scope Process -Force
+
+# Verify the execution policy
+Get-ExecutionPolicy -Scope Process
+
 #Load DLLs
 #GFOX Special Sauce V4.1 
 
