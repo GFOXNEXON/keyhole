@@ -163,7 +163,7 @@ $button2.Size = New-Object System.Drawing.Size(100, 40)
 $button2.Text = "AUTOPILOT ENROL DEVICE"
 #$button2.Image = [System.Drawing.Image]::FromStream((New-Object System.Net.WebClient).OpenRead("https://i.imgur.com/0w9xZ6F.png"))
 $button2.ImageAlign = [System.Drawing.ContentAlignment]::MiddleCenter
-$tooltip.SetToolTip($button2, "This will reset the device to factory settings and remove all data")
+$tooltip.SetToolTip($button2, "This will connect to any tenant using your 365 credentials and import the serial number and add a AzureAD group tag")
 $button2.Add_Click({
     Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Confirm:$false -Force:$true;
 Install-Script get-windowsautopilotinfo -Confirm:$false -Force:$true ;
