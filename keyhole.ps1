@@ -136,7 +136,7 @@ Write-Host "##############################################################" -For
 
 Write-Host "Automated Update of all Drivers, Firmware and Windows Updates." -ForegroundColor Green
 
-Write-Host "DEVICE WILL AUTO REBOOT" -ForegroundColor Green
+Write-Host "DEVICE WILL ASK TO REBOOT" -ForegroundColor Green
 
 
 Write-Host "##############################################################" -ForegroundColor Yellow
