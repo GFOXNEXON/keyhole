@@ -100,12 +100,12 @@ $form.Controls.Add($serialLabel)
 # Create a tooltip object for the buttons
 $tooltip = New-Object System.Windows.Forms.ToolTip
 
-# Create the button to launch the first script and set its image and tooltip
+# Create the button to launch the Updates
 $button1 = New-Object System.Windows.Forms.Button
 $button1.Location = New-Object System.Drawing.Point(10, 80)
 $button1.Size = New-Object System.Drawing.Size(100, 40)
-$button1.Text = "Connect and Update"
-#$button1.Image = [System.Drawing.Image]::FromStream((New-Object System.Net.WebClient).OpenRead("https://i.imgur.com/0w9xZ6F.png"))
+$button1.Text = "Update"
+
 $button1.ImageAlign = [System.Drawing.ContentAlignment]::MiddleCenter
 $tooltip.SetToolTip($button1, "This will install all updates, firmware and drivers across all hardware architectures.")
 $button1.Add_Click({
@@ -160,7 +160,7 @@ $form.Controls.Add($button1)
 $button2 = New-Object System.Windows.Forms.Button
 $button2.Location = New-Object System.Drawing.Point(120, 80)
 $button2.Size = New-Object System.Drawing.Size(100, 40)
-$button2.Text = "AUTOPILOT ENROL DEVICE"
+$button2.Text = "AUTOPILOT Enrol"
 #$button2.Image = [System.Drawing.Image]::FromStream((New-Object System.Net.WebClient).OpenRead("https://i.imgur.com/0w9xZ6F.png"))
 $button2.ImageAlign = [System.Drawing.ContentAlignment]::MiddleCenter
 $tooltip.SetToolTip($button2, "This will connect to any tenant using your 365 credentials and import the serial number and add a AzureAD group tag")
@@ -171,14 +171,14 @@ get-windowsautopilotinfo -Online -GroupTag AzureAD
 })
 $form.Controls.Add($button2)
 
-# Create the button to launch the third script and set its image and tooltip
+# Create Button
 $button3 = New-Object System.Windows.Forms.Button
 $button3.Location = New-Object System.Drawing.Point(230, 80)
 $button3.Size = New-Object System.Drawing.Size(100, 40)
-$button3.Text = "Script 3"
+$button3.Text = "S3"
 #$button3.Image = [System.Drawing.Image]::FromStream((New-Object System.Net.WebClient).OpenRead("https://i.imgur.com/0w9xZ6F.png"))
 $button3.ImageAlign = [System.Drawing.ContentAlignment]::MiddleCenter
-$tooltip.SetToolTip($button3, "This will run the third script")
+$tooltip.SetToolTip($button3, "Adding Script from Sauce")
 $button3.Add_Click({
     Start-Process powershell.exe -ArgumentList "-File D:\SpecialSauce\Script3.ps1"
 })
