@@ -56,9 +56,13 @@ $serial = (Get-WmiObject -Class Win32_BIOS).SerialNumber
 $form = New-Object System.Windows.Forms.Form
 $form.Text = "Special Sauce - Engineers Toolkit"
 $form.Size = New-Object System.Drawing.Size(500, 400)
-# Event Handler to delete cache when form is closed
+# Event Handler to delete cache when form is closed and any closing actions
 $form.Add_FormClosing({
-    Remove-Item -Recurse -Force $cachePath -ErrorAction SilentlyContinue
+    #Remove-Item -Recurse -Force $cachePath -ErrorAction SilentlyContinue
+    Write-Host "#########################"
+    Write-Host "##SIGTERM SPECIAL SAUCE##"
+    Write-Host "#########################"
+
 })
 
 # Set a background image for the form from a URL and stretch it to fill the form
