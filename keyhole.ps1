@@ -11,8 +11,8 @@ Add-Type -AssemblyName System.Windows.Forms
 
 # Check if the script is running as Administrator and relaunch if not
 if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
-    Write-Output "Engineers Toolkit - Keyhole needs to be run as Administrator. Attempting to relaunch."
-    Start-Process -Verb runas -FilePath powershell.exe -ArgumentList “iwr -useb https://raw.githubusercontent.com/GFOXNEXON/keyhole/main/keyhole.ps1 | iex”
+    Write-Output "Engineers Toolkit - Keyhole needs to be run as Administrator."
+    #Start-Process -Verb runas -FilePath powershell.exe -ArgumentList “iwr -useb https://raw.githubusercontent.com/GFOXNEXON/keyhole/main/keyhole.ps1 | iex”
     break
 }
 Write-Host "Special Sauce - Engineers Toolkit"
