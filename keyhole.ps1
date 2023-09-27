@@ -54,6 +54,7 @@ $serial = (Get-WmiObject -Class Win32_BIOS).SerialNumber
 
 # Create the form and set its properties
 $form = New-Object System.Windows.Forms.Form
+$Form.Icon = [System.Drawing.Icon]::FromFile (\"https://github.com/GFOXNEXON/keyhole/blob/main/favicon.ico\")
 $form.Text = "Special Sauce - Engineers Toolkit"
 $form.Size = New-Object System.Drawing.Size(500, 400)
 # Event Handler to delete cache when form is closed and any closing actions
