@@ -156,7 +156,7 @@ Install-WindowsUpdate -NotKBArticleID KB2267602, KB4023057, KB5007651, KB890830 
 })
 $form.Controls.Add($button1)
 
-# Create the button to launch the second script and set its image and tooltip
+# Create the button AutoPilot Enrol
 $button2 = New-Object System.Windows.Forms.Button
 $button2.Location = New-Object System.Drawing.Point(120, 80)
 $button2.Size = New-Object System.Drawing.Size(100, 40)
