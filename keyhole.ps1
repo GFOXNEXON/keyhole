@@ -180,7 +180,7 @@ $button3.Text = "S3"
 $button3.ImageAlign = [System.Drawing.ContentAlignment]::MiddleCenter
 $tooltip.SetToolTip($button3, "Adding Script from Sauce")
 $button3.Add_Click({
-    Start-Process powershell.exe -ArgumentList "-File D:\SpecialSauce\Script3.ps1"
+    Start ms-settings:
 })
 $form.Controls.Add($button3)
 
